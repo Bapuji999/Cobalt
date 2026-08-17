@@ -1,5 +1,9 @@
 services:
 
+  # =====================================================
+  # COBALT
+  # =====================================================
+
   - type: web
     name: cobalt-dpay
     runtime: docker
@@ -24,6 +28,10 @@ services:
         sync: false
 
 
+  # =====================================================
+  # YOUTUBE SESSION GENERATOR
+  # =====================================================
+
   - type: web
     name: yt-session-generator
     runtime: image
@@ -33,4 +41,7 @@ services:
     image:
       url: ghcr.io/imputnet/yt-session-generator:webserver
 
-    healthCheckPath: /token
+    envVars:
+
+      - key: PORT
+        value: "8080"
