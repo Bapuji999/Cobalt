@@ -1,9 +1,5 @@
 services:
 
-  # =====================================================
-  # COBALT API
-  # =====================================================
-
   - type: web
     name: cobalt-dpay
     runtime: docker
@@ -15,30 +11,18 @@ services:
 
     envVars:
 
-      # Your public Cobalt URL
       - key: API_URL
         value: https://cobalt-dpay.onrender.com/
 
-      # Cobalt listens on 9000
       - key: API_PORT
         value: "9000"
 
-      # Allow your Vercel frontend to call Cobalt
       - key: CORS_WILDCARD
         value: "1"
 
-      # IMPORTANT:
-      # Render will replace this with the session-generator
-      # service's public hostname after deployment.
-      #
-      # We will set this manually after the first deploy.
       - key: YOUTUBE_SESSION_SERVER
         sync: false
 
-
-  # =====================================================
-  # YOUTUBE SESSION GENERATOR
-  # =====================================================
 
   - type: web
     name: yt-session-generator
